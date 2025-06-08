@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Signup</title>
+</head>
+<body>
+<h2>회원가입</h2>
+<form th:action="@{/signup}" th:object="${user}" method="post">
+    <div th:if="${emailExists}">
+        <p style="color:red">이미 존재하는 이메일입니다.</p>
+    </div>
+    <label>Email: <input type="text" th:field="*{email}"/></label><br/>
+    <label>Password: <input type="password" th:field="*{password}"/></label><br/>
+    <button type="submit">가입</button>
+</form>
+</body>
+</html>

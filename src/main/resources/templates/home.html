@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title>Home</title>
+</head>
+<body>
+<h1>환영합니다!</h1>
+<p sec:authorize="isAuthenticated()">로그인 사용자: <span sec:authentication="name"></span></p>
+
+<div sec:authorize="hasRole('ADMIN')">
+    <p>관리자 전용 정보 표시</p>
+</div>
+
+<div>
+    <a th:href="@{/logout}">로그아웃</a>
+</div>
+</body>
+</html>
